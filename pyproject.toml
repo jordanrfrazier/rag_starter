@@ -1,0 +1,56 @@
+[tool]
+[tool.poetry]
+name = "rag"
+version = "0.1.0"
+homepage = "https://github.com/hobbes/rag"
+description = "Top-level package for rag."
+authors = ["hobbes <email@example.com>"]
+readme = "README.rst"
+license =  "MIT"
+classifiers=[
+    'Development Status :: 2 - Pre-Alpha',
+    'Intended Audience :: Developers',
+    'License :: OSI Approved :: MIT License',
+    'Natural Language :: English',
+    'Programming Language :: Python :: 3',
+    'Programming Language :: Python :: 3.5',
+    'Programming Language :: Python :: 3.6',
+    'Programming Language :: Python :: 3.7',
+    'Programming Language :: Python :: 3.8',
+]
+packages = [
+    { include = "rag" },
+    { include = "tests", format = "sdist" },
+]
+
+[tool.poetry.dependencies]
+python = ">=3.9,<3.12"
+python-dotenv = "^0.19.1"
+ragstack-ai = "0.6.0"
+datasets = "*"
+click = "*"
+
+[tool.poetry.dependencies.streamlit]
+version = "1.29.0"
+python = ">=3.8, !=3.9.7"
+
+[tool.poetry.dev-dependencies]
+bumpversion = "*"
+coverage = "*"
+flake8 = "*"
+invoke = "*"
+isort = "*"
+pylint = "*"
+pytest = ">=7.2.0"
+sphinx = ">=5.3.0"
+black = "*"
+
+[tool.poetry.scripts]
+rag = 'rag.cli:main'
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
+
+[tool.isort]
+profile = "black"
